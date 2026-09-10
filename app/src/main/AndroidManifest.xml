@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
+
+    <!-- Legacy Bluetooth permissions (API <= 30) -->
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+
+    <!-- Android 12+ (API 31+) granular Bluetooth permissions -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADVERTISE"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="31" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="31" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <!-- Needed for BLE scan results on API < 31 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:maxSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".PresenZApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="presenZ"
+        android:theme="@style/Theme.PresenZ"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".teacher.TeacherLoginActivity" android:exported="false" />
+        <activity android:name=".teacher.TeacherHomeActivity" android:exported="false" />
+        <activity android:name=".teacher.SessionActivity" android:exported="false" />
+        <activity android:name=".teacher.TeacherHistoryActivity" android:exported="false" />
+        <activity android:name=".teacher.SessionDetailActivity" />
+
+        <activity android:name=".student.StudentScanActivity" android:exported="false" />
+        <activity android:name=".student.StudentHomeActivity" android:exported="false" />
+        <activity android:name=".student.StudentLoginActivity" android:exported="false" />
+        <activity android:name=".student.StudentRegisterActivity" android:exported="false" />
+        <activity android:name=".student.StudentHistoryActivity" android:exported="false" />
+
+    </application>
+
+</manifest>
