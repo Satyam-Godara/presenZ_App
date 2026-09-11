@@ -54,7 +54,7 @@ object Prefs {
             sp.getString(
                 "base_url",
 //                "https://presenz.godara.work.gd/"
-                "https://presenz-ckzr.onrender.com/"
+                "http://161.118.176.127:4000/"
             )
 
                     ?: "https://presenz-ckzr.onrender.com/"
